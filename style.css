@@ -1,0 +1,8 @@
+
+body{font-family:Arial,sans-serif;margin:0;background:#f8fafc}
+.nav{background:#2563EB;padding:15px}
+.nav a{color:white;text-decoration:none;margin-right:15px}
+.container{max-width:1200px;margin:auto;padding:20px}
+.card{background:white;padding:20px;border-radius:12px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.btn{background:#2563EB;color:white;padding:10px 15px;border-radius:8px;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}

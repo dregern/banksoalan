@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BankSoalan.my - Bank Soalan KSSR Malaysia</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#2563EB',
+secondary: '#10B981',
+accent: '#F59E0B'
+},
+fontFamily: {
+inter: ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+.glass{
+backdrop-filter: blur(12px);
+}
+
+.shadow-soft{
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card-hover{
+transition:all .3s ease;
+}
+
+.card-hover:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+}
+
+.gradient-hero{
+background:
+radial-gradient(circle at top right,#dbeafe 0%,transparent 40%),
+radial-gradient(circle at bottom left,#dcfce7 0%,transparent 35%),
+#f8fafc;
+}
+
+.option-selected{
+background:#2563EB !important;
+color:white !important;
+border-color:#2563EB !important;
+}
+
+.timeline-line{
+position:absolute;
+left:50%;
+top:0;
+bottom:0;
+width:4px;
+background:#dbeafe;
+transform:translateX(-50%);
+}
+
+@media(max-width:768px){
+.timeline-line{
+display:none;
+}
+}
+</style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="flex items-center justify-between h-16">
+
+<a href="#" class="flex items-center gap-2 text-primary font-extrabold text-xl">
+<i class="fas fa-book-open"></i>
+<span>BankSoalan.my</span>
+</a>
+
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a href="#" class="hover:text-primary">Home</a>
+<a href="#tahun" class="hover:text-primary">Tahun 1–6</a>
+<a href="#subjek" class="hover:text-primary">Matematik</a>
+<a href="#subjek" class="hover:text-primary">Sains</a>
+<a href="#latihan" class="hover:text-primary">Latihan</a>
+<a href="#hubungi" class="hover:text-primary">Hubungi Kami</a>
+</nav>
+
+<div class="hidden md:flex items-center gap-3">
+<button disabled class="px-4 py-2 rounded-xl border border-slate-300 text-slate-500 cursor-not-allowed">
+Sign In
+</button>
+
+<button disabled class="px-4 py-2 rounded-xl bg-primary text-white opacity-70 cursor-not-allowed">
+Register
+</button>
+</div>
+
+<button id="menuBtn" class="md:hidden text-2xl">
+<i class="fas fa-bars"></i>
+</button>
+
+</div>
+
+<div id="mobileMenu" class="hidden md:hidden pb-5">
+<div class="flex flex-col gap-4">
+<a href="#" class="hover:text-primary">Home</a>
+<a href="#tahun">Tahun 1–6</a>
+<a href="#subjek">Matematik</a>
+<a href="#subjek">Sains</a>
+<a href="#latihan">Latihan</a>
+<a href="#hubungi">Hubungi Kami</a>
+
+<div class="flex gap-2 pt-2">
+<button disabled class="flex-1 border rounded-xl py-2 opacity-60">
+Sign In
+</button>
+<button disabled class="flex-1 bg-primary text-white rounded-xl py-2 opacity-60">
+Register
+</button>
+</div>
+</div>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="gradient-hero pt-32 pb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+
+<div class="reveal">
+<span class="inline-flex items-center gap-2 bg-blue-100 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-5">
+<i class="fas fa-graduation-cap"></i>
+Platform Pendidikan Malaysia
+</span>
+
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+Bank Soalan KSSR Terbaik Untuk Murid Sekolah Rendah
+</h1>
+
+<p class="text-lg text-slate-600 mb-8 leading-relaxed">
+Akses ribuan soalan Matematik dan Sains berdasarkan silibus KSSR Malaysia.
+</p>
+
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#tahun" class="bg-primary hover:bg-blue-700 text-white px-7 py-4 rounded-2xl font-semibold shadow-soft">
+Mula Belajar
+</a>
+
+<a href="#latihan" class="border border-slate-300 hover:border-primary hover:text-primary px-7 py-4 rounded-2xl font-semibold">
+Lihat Soalan
+</a>
+</div>
+</div>
+
+<div class="reveal">
+<div class="bg-white rounded-3xl p-8 shadow-soft">
+
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-blue-50 rounded-2xl p-6 text-center">
+<i class="fas fa-calculator text-4xl text-primary mb-4"></i>
+<h3 class="font-bold">Matematik</h3>
+</div>
+
+<div class="bg-green-50 rounded-2xl p-6 text-center">
+<i class="fas fa-flask text-4xl text-secondary mb-4"></i>
+<h3 class="font-bold">Sains</h3>
+</div>
+
+<div class="bg-orange-50 rounded-2xl p-6 text-center">
+<i class="fas fa-file-circle-question text-4xl text-accent mb-4"></i>
+<h3 class="font-bold">Latihan</h3>
+</div>
+
+<div class="bg-purple-50 rounded-2xl p-6 text-center">
+<i class="fas fa-trophy text-4xl text-purple-500 mb-4"></i>
+<h3 class="font-bold">Pencapaian</h3>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SUBJECTS -->
+<section id="subjek" class="py-20">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="text-center mb-14 reveal">
+<h2 class="text-3xl font-bold mb-3">Pilih Subjek</h2>
+<p class="text-slate-600">Mulakan latihan mengikut subjek pilihan anda</p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="card-hover bg-white p-8 rounded-3xl shadow-soft reveal">
+<div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-5">
+<i class="fas fa-calculator text-primary text-3xl"></i>
+</div>
+
+<h3 class="text-2xl font-bold mb-3">Matematik</h3>
+<p class="text-slate-600 mb-6">
+Latihan nombor, pecahan, wang, masa dan penyelesaian masalah.
+</p>
+
+<button class="bg-primary text-white px-5 py-3 rounded-xl">
+Teroka
+</button>
+</div>
+
+<div class="card-hover bg-white p-8 rounded-3xl shadow-soft reveal">
+<div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-5">
+<i class="fas fa-flask text-secondary text-3xl"></i>
+</div>
+
+<h3 class="text-2xl font-bold mb-3">Sains</h3>
+<p class="text-slate-600 mb-6">
+Latihan mengikut topik sains sekolah rendah yang terkini.
+</p>
+
+<button class="bg-secondary text-white px-5 py-3 rounded-xl">
+Teroka
+</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- TAHUN -->
+<section id="tahun" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="text-center mb-14 reveal">
+<h2 class="text-3xl font-bold">Pilih Tahun</h2>
+</div>
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+<script>
+const years=[1,2,3,4,5,6];
+document.write(years.map(y=>`
+<div class="card-hover bg-slate-50 rounded-3xl p-6 shadow-soft reveal">
+<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+<i class="fas fa-user-graduate text-primary"></i>
+</div>
+<h3 class="font-bold text-xl mb-2">Tahun ${y}</h3>
+<p class="text-slate-500 mb-4">${(y*850)+1200} Soalan</p>
+<button class="w-full bg-primary text-white py-3 rounded-xl">
+Explore
+</button>
+</div>
+`).join(''));
+</script>
+
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="text-center mb-14 reveal">
+<h2 class="text-3xl font-bold">Kenapa Pilih Kami?</h2>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<div class="card-hover bg-white p-6 rounded-3xl shadow-soft reveal">
+<i class="fas fa-book text-primary text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">KSSR Aligned</h3>
+<p class="text-slate-600">Mengikut silibus rasmi KPM.</p>
+</div>
+
+<div class="card-hover bg-white p-6 rounded-3xl shadow-soft reveal">
+<i class="fas fa-layer-group text-secondary text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">Thousands of Questions</h3>
+<p class="text-slate-600">Ribuan soalan latihan.</p>
+</div>
+
+<div class="card-hover bg-white p-6 rounded-3xl shadow-soft reveal">
+<i class="fas fa-mobile-screen text-accent text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">Mobile Friendly</h3>
+<p class="text-slate-600">Mesra telefon dan tablet.</p>
+</div>
+
+<div class="card-hover bg-white p-6 rounded-3xl shadow-soft reveal">
+<i class="fas fa-bolt text-yellow-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-2">Instant Practice</h3>
+<p class="text-slate-600">Terus jawab tanpa login.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SAMPLE QUESTION -->
+<section id="latihan" class="py-20 bg-white">
+<div class="max-w-4xl mx-auto px-4">
+
+<div class="text-center mb-10 reveal">
+<h2 class="text-3xl font-bold">Contoh Soalan</h2>
+</div>
+
+<div class="bg-slate-50 rounded-3xl p-8 shadow-soft reveal">
+
+<p class="text-primary font-semibold mb-4">
+Soalan Matematik Tahun 4
+</p>
+
+<h3 class="text-3xl font-bold mb-8">
+456 + 789 = ?
+</h3>
+
+<div class="grid gap-4">
+
+<button class="answer border-2 border-slate-200 rounded-2xl p-4 text-left hover:border-primary">
+A. 1245
+</button>
+
+<button class="answer border-2 border-slate-200 rounded-2xl p-4 text-left hover:border-primary">
+B. 1145
+</button>
+
+<button class="answer border-2 border-slate-200 rounded-2xl p-4 text-left hover:border-primary">
+C. 1345
+</button>
+
+<button class="answer border-2 border-slate-200 rounded-2xl p-4 text-left hover:border-primary">
+D. 1456
+</button>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ROADMAP -->
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-4 relative">
+
+<div class="text-center mb-14 reveal">
+<h2 class="text-3xl font-bold">Roadmap Platform</h2>
+</div>
+
+<div class="timeline-line"></div>
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="bg-white rounded-3xl p-6 shadow-soft reveal">
+<h3 class="font-bold text-xl mb-3 text-primary">Phase 1</h3>
+<ul class="space-y-2">
+<li>✓ Question Bank</li>
+</ul>
+</div>
+
+<div class="bg-white rounded-3xl p-6 shadow-soft reveal">
+<h3 class="font-bold text-xl mb-3 text-primary">Phase 2</h3>
+<ul class="space-y-2">
+<li>✓ Google Login</li>
+<li>✓ Microsoft Login</li>
+</ul>
+</div>
+
+<div class="bg-white rounded-3xl p-6 shadow-soft reveal">
+<h3 class="font-bold text-xl mb-3 text-primary">Phase 3</h3>
+<ul class="space-y-2">
+<li>✓ Progress Tracking</li>
+<li>✓ Analytics Dashboard</li>
+</ul>
+</div>
+
+<div class="bg-white rounded-3xl p-6 shadow-soft reveal">
+<h3 class="font-bold text-xl mb-3 text-primary">Phase 4</h3>
+<ul class="space-y-2">
+<li>✓ AI Generated Questions</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="text-center mb-14 reveal">
+<h2 class="text-3xl font-bold">Apa Kata Pengguna?</h2>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="bg-slate-50 p-8 rounded-3xl shadow-soft reveal">
+<p class="mb-4">
+"Sangat membantu guru menyediakan latihan tambahan kepada murid."
+</p>
+<h4 class="font-bold">Guru</h4>
+</div>
+
+<div class="bg-slate-50 p-8 rounded-3xl shadow-soft reveal">
+<p class="mb-4">
+"Anak saya lebih seronok membuat latihan menggunakan telefon."
+</p>
+<h4 class="font-bold">Ibu Bapa</h4>
+</div>
+
+<div class="bg-slate-50 p-8 rounded-3xl shadow-soft reveal">
+<p class="mb-4">
+"Soalan banyak dan mudah digunakan."
+</p>
+<h4 class="font-bold">Murid</h4>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-4">
+
+<div class="bg-gradient-to-r from-primary to-secondary rounded-[32px] p-10 md:p-16 text-center text-white shadow-soft reveal">
+
+<h2 class="text-4xl font-bold mb-5">
+Mulakan Pembelajaran Hari Ini
+</h2>
+
+<p class="mb-8 text-lg opacity-90">
+Teroka ribuan soalan latihan KSSR secara percuma.
+</p>
+
+<button class="bg-white text-primary font-bold px-8 py-4 rounded-2xl">
+Teroka Bank Soalan
+</button>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="hubungi" class="bg-slate-900 text-white pt-16 pb-8">
+
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="grid md:grid-cols-4 gap-10 mb-12">
+
+<div>
+<h3 class="font-bold text-lg mb-4">About</h3>
+<p class="text-slate-400">
+Platform bank soalan digital untuk pendidikan Malaysia.
+</p>
+</div>
+
+<div>
+<h3 class="font-bold text-lg mb-4">Subjects</h3>
+<ul class="space-y-2 text-slate-400">
+<li>Matematik</li>
+<li>Sains</li>
+<li>Bahasa Melayu</li>
+<li>English</li>
+</ul>
+</div>
+
+<div>
+<h3 class="font-bold text-lg mb-4">Support</h3>
+<ul class="space-y-2 text-slate-400">
+<li>FAQ</li>
+<li>Bantuan</li>
+<li>Panduan</li>
+</ul>
+</div>
+
+<div>
+<h3 class="font-bold text-lg mb-4">Contact</h3>
+<ul class="space-y-2 text-slate-400">
+<li>support@banksoalan.my</li>
+<li>Malaysia</li>
+</ul>
+</div>
+
+</div>
+
+<div class="border-t border-slate-700 pt-6 text-center text-slate-400">
+© 2026 BankSoalan.my. All rights reserved.
+</div>
+
+</div>
+</footer>
+
+<script>
+
+/* Mobile Menu */
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click',()=>{
+mobileMenu.classList.toggle('hidden');
+});
+
+/* Question Selection */
+document.querySelectorAll('.answer').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.answer').forEach(x=>{
+x.classList.remove('option-selected');
+});
+btn.classList.add('option-selected');
+});
+});
+
+/* Scroll Reveal */
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('active');
+}
+});
+},{
+threshold:0.15
+});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+observer.observe(el);
+});
+
+/* Navbar Shadow */
+window.addEventListener('scroll',()=>{
+const nav=document.getElementById('navbar');
+
+if(window.scrollY>10){
+nav.classList.add('shadow-lg');
+}else{
+nav.classList.remove('shadow-lg');
+}
+});
+
+</script>
+
+</body>
+</html>
